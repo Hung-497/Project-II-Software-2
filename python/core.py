@@ -196,7 +196,6 @@ def run_cli(db_conf):
 def show_good():
     typing("\n--- MISSION COMPLETE ---\n")
     time.sleep(1)
-
     typing("You have visited all the airports and decoded every hint.\n")
     time.sleep(1)
 
