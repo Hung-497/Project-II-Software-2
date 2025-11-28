@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/sample.js" defer></script>
+    <title>Survival Flight</title>
+</head>
+<body>
+
+<div class="game-container">
+    <header class="title-bar">
+        <h1>SURVIVAL FLIGHT</h1>
+    </header>
+
+    <main class="content">
+        <div class="map-panel">
+            <div id="map"></div>
+        </div>
+        <aside class="side-panel">
+            <h2 class="airports-title">AIRPORTS</h2>
+            <ul id="airport-list" class="airport-list">
+            </ul>
+            <button id="go-button" class="go-button">GO</button>
+        </aside>
+
+    </main>
+    <footer class="status-bar">
+        <div class="status-box">
+            ✈️ <span id="visited-count">3</span>/10
+        </div>
+
+        <div class="status-box">
+            🔐 <span id="codes-count">2</span>/5
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
