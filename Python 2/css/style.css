@@ -38,7 +38,7 @@ body {
 
 #map {
     width: 100%;
-    height: 750px;
+    height: 730px;
 }
 
 .side-panel {
@@ -56,7 +56,7 @@ body {
 .airport-list {
     list-style: none;
     border: 1px solid darkgray;
-    height: 450px;
+    height: 430px;
     overflow-y: auto;
     padding: 0;
     margin: 0 0 15px 0;
