@@ -1,8 +1,9 @@
-.header {
-    text-align: center;
-}
-.content {
-    text-align: justify;
-    text-indent: 30px;
-    margin: 12px;
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #bfbfbf, #f1f1f1);
+    font-family: Arial, sans-serif;
 }
