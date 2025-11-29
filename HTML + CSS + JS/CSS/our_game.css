@@ -18,5 +18,47 @@ body {
 }
 
 
+.image-box {
+    width: 320px;
+    height: 170px;
+    background-color: #8ee2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+button-row {
+    display: flex;
+    gap: 40px;
+
+
+
+.btn {
+    background-color: #8ee2f2;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    color: #000;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+
+.btn:hover {
+    background-color: #7bd5e6;
+}
+
 
 
