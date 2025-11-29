@@ -8,10 +8,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 /*  This is used to align the image box and the buttons together.
     In the final version I may or may not use it.
-    Image box and buttons will have their own buttons.
+    Image box and buttons will have their own css modifications.
 */
 .container {
     text-align: center;
 }
+
+
+
+
