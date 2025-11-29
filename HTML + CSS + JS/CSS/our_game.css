@@ -7,3 +7,11 @@ body {
     background: linear-gradient(to right, #bfbfbf, #f1f1f1);
     font-family: Arial, sans-serif;
 }
+
+/*  This is used to align the image box and the buttons together.
+    In the final version I may or may not use it.
+    Image box and buttons will have their own buttons.
+*/
+.container {
+    text-align: center;
+}
