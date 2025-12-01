@@ -1,10 +1,5 @@
 body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #bfbfbf, #f1f1f1);
+    background: #d9d9d9;
     font-family: Arial, sans-serif;
 }
 
@@ -19,7 +14,7 @@ body {
 }
 
 
-.image-box {
+/*.image-box {
     width: 320px;
     height: 170px;
     background-color: #8ee2f2;
@@ -29,14 +24,20 @@ body {
     border-radius: 4px;
     overflow: hidden;
     margin-bottom: 40px;
-}
+}*/
 
-.image-box img {
+/*.image-box img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+}*/
 
+.menu-image {
+    width: 800px;         /* Increase image size */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
 .button-row {
     margin-top: 25px;
