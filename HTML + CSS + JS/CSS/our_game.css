@@ -38,27 +38,31 @@ body {
 }
 
 
-button-row {
-    display: flex;
-    gap: 40px;
+.button-row {
+    margin-top: 25px;
+}
 
 
-
-.btn {
-    background-color: #8ee2f2;
+.menu-btn {
+    padding: 12px 30px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
     border: none;
-    padding: 10px 25px;
-    font-size: 16px;
-    color: #000;
-    border-radius: 18px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
 }
 
 
 
-.btn:hover {
-    background-color: #7bd5e6;
+
+.menu-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
 }
 
 
