@@ -42,7 +42,7 @@ body {
 }
 
 .side-panel {
-    width: 250px;
+    width: 485px;
     display: flex;
     flex-direction: column;
 }

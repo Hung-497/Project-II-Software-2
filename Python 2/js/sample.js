@@ -87,12 +87,11 @@ document.getElementById("go-button").addEventListener("click", function () {
     chosenAirport = null;
 });
 
-// Move the plane to a new spot
 function movePlane(lat, lon) {
     if (plane === null) {
         plane = L.marker([lat, lon], {
             icon: L.icon({
-                iconUrl: "img/plane.png",
+                iconUrl: "Images/airplane-icon.png",
                 iconSize: [40, 40]
             })
         }).addTo(map);
