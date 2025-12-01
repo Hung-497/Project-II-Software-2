@@ -1,3 +1,10 @@
+
+const map = L.map("map").setView([54.5, 15.2],4);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 20
+}).addTo(map);
+
 let airports = [
     { code: "BIKF", name: "Keflavik International Airport - Reykjavík", lat: 63.9850, lon: -22.6056 },
     { code: "EDDF", name: "Frankfurt am Main Airport - Frankfurt", lat: 50.0379, lon: 8.5622 },
