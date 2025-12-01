@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,21 @@
     <title>Survival Flight</title>
 </head>
 <body>
+<div class ="video">
+    <video loop autoplay muted class ="back-video">
+    <source src="css/Sky.mp4" type="video/mp4">
+    </video>
+</div>
 
-<div class="game-container">
-
-    <header class="title-bar">
+    <header class="nav-bar">
+        <div class ="nav-title">
         <h1>SURVIVAL FLIGHT</h1>
+        </div>
+        <nav class="nav-links">
+        </nav>
+
     </header>
+<div class="game-container">
 
     <main class="content">
         <div class="map-panel">
@@ -30,14 +39,12 @@
         <input type="text" id="player-name" readonly></div>
             </div>
 
-            <h2 class="airports-title">AIRPORTS</h2>
-            <ul id="airport-list" class="airport-list">
-            </ul>
-            <button id="go-button" class="go-button">GO</button>
-        </aside>
+            <div class="main-status-area">
+    <div class="status-header">
+        <h2>FLIGHT STATUS</h2>
+    </div>
 
-    </main>
-    <footer class="status-bar">
+            <footer class="status-bar">
         <div class="status-box">
             ✈️ <span id="airport visited-count">0</span>/21
         </div>
@@ -46,6 +53,16 @@
             🔐 <span id="codes encrypted-count">3</span>/6
         </div>
     </footer>
+            </div>
+
+            <h2 class="airports-title">AIRPORTS</h2>
+            <ul id="airport-list" class="airport-list">
+            </ul>
+            <button id="go-button" class="go-button">GO</button>
+        </aside>
+
+    </main>
+
 
 </div>
 
