@@ -1,0 +1,118 @@
+/* Background */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://media3.giphy.com/media/ei4juXBXLJuc2gBCgg/giphy.gif")
+                no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Center content */
+.container {
+    text-align: center;
+}
+
+
+
+/* Title */
+.game-title {
+    font-size: 60px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 15px black;
+    margin-bottom: 30px;
+}
+
+
+
+/* Buttons */
+.button-row {
+    margin-top: 10px;
+}
+
+.menu-btn {
+    width: 180px;
+    height: 50px;
+    padding: 12px 30px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
+}
+
+.menu-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+
+
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Modal box */
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content input {
+    width: 90%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+
+    color: black;
+    font-size: 16px;
+    text-shadow: 0 0 8px black;
+}
+
