@@ -1,6 +1,7 @@
 import mysql.connector
-import random 
-import time,sys
+import random
+from flask import Flask, Response
+import json
 
 connection = mysql.connector.connect(
          host='127.0.0.1',
@@ -33,7 +34,6 @@ letter_parts = {
 }
 
 ## this is a function for defining random airports in r rows
-
 def get_airport(db_conf): #random 30 airports for the game
     sql = """SELECT ident, name, municipality
              FROM airport
@@ -53,7 +53,6 @@ class Coregame:
     def __init__(self, db_conf):
         #Map
         self.airport = get_airport(db_conf)
-
         code_positions = {icao: FIXED_HINTS.get(icao, "") for icao in FIXED_CODE_AIRPORTS}
         fixed_municipalities = {
         "LIRF": "Rome",
@@ -68,7 +67,6 @@ class Coregame:
             "LFPG": "Charles de Gaulle International Airport",
             "EHEH": "Eindhoven Airport",
             "EDDF": "Frankfurt am Main Airport"}
-        
         # Ensure fixed airports are included
         for icao in FIXED_CODE_AIRPORTS:
             self.airport[icao] = {
@@ -77,7 +75,6 @@ class Coregame:
                 "municipality": fixed_municipalities.get(icao, "")
             }
         self.idents = list(self.airport)
-
         # Player state
         self.start = random.choice(self.idents)
         self.cur = self.start
@@ -86,18 +83,55 @@ class Coregame:
         self.days_left = 21
         self.max_days = 21
         self.code_positions = code_positions
-    
+        self.messages = []
+        self.game_over = False
+        self.outcome = None
+
+    def built_message(self):
+        remaining = [i for i in self.idents if i not in self.visited]
+        return {
+            "current_airport": self.cur,
+            "start_airport": self.start,
+            "days_left": self.days_left,
+            "max_days": self.max_days,
+            "code_found": len(self.found),
+            "visited_airports": list(self.visited),
+            "game_over" : self.game_over,
+            "outcome": self.outcome,
+            "messages": self.messages,
+            "reamaining_airport_count": len(remaining),
+            "remaining_airports": sorted(remaining)
+        }
+  
+    def reset_messages(self):
+        self.messages = []
+
+    def add_message(self, text):
+        self.messages.append(text)
+
     def show_letter_so_far(self):
         parts = [letter_parts[i] for i in FIXED_CODE_AIRPORTS if i in self.found]
         if parts:
-            print("\n>>> Letter so far:\n" + " ".join(parts) + "\n")
+            text = "\n>>> Letter so far:\n" + " ".join(parts) + "\n"
+            self.add_message(text)
+            return text
+        return ""
 
     def move(self, dest_ident):
+
+        self.reset_messages()
+
         if dest_ident not in self.airport:
-            return f'This airport {dest_ident} is not on the map!'
+            msg = f'This airport {dest_ident} is not on the map!'
+            self.add_message(msg)
+            return msg
+        
         if dest_ident == self.cur:
-            return "You already at this place, please move to another destination."
-        Coregame.show_letter_so_far(self)
+            msg = "You already at this place, please move to another destination."
+            self.add_message(msg)
+            return msg
+        
+        self.show_letter_so_far()
         self.days_left -= 1
         self.cur = dest_ident
         self.visited.add(dest_ident)
@@ -115,6 +149,23 @@ class Coregame:
         # If all letter parts are found
         if len(self.found) == len(FIXED_CODE_AIRPORTS):
             msg += "\n\n>>> The letter is now complete! <<<"
+            self.game_over = True
+            self.outcome = "win"
+
+        if self.days_left <= 0 and not self.win_condition():
+            msg += "\n\n>>> You have run out of days! <<<"
+            self.game_over = True
+            self.outcome = "lose"
+        
+        if self.game_over:
+            if self.outcome == "win":
+                msg += "\n\nCongratulations! You have successfully completed your mission and saved the world!"
+                msg += "The game is already over. Please start a new game."
+            else:
+                msg += "\n\nUnfortunately, you have failed your mission. The world is lost."
+                msg += "The game is already over. Please start a new game."
+
+        self.add_message(msg)
         return msg
     
     def win_condition(self):
@@ -124,134 +175,52 @@ class Coregame:
         row = self.airport[ident]
         return f"{ident} - {row['name']} - {row.get('municipality') or '' }"
 
-# ----CLI runner----
-def typing(text):
-   for character in text:
-      sys.stdout.write(character)
-      sys.stdout.flush()
-      time.sleep(0.05)
+#-------- Flask App for interaction --------
+db_conf = dict(
+    host='127.0.0.1',
+    port=3306,
+    database='demogame',
+    user='root',
+    password='Giahung@!497',
+    autocommit=True,
+    auth_plugin="mysql_native_password",
+    use_pure=True
+)
+app = Flask(__name__)
+game = Coregame(db_conf)
 
-def run_cli(db_conf):
-    from intro import show_intro
-    show_intro()
-    g = Coregame(db_conf)
-    name = input("Type the player name: ").capitalize()
-    input("\n\033[32mPress Enter to start the game...\033[0m")
-    typing("\nThe world is falling apart, piece by piece.\n")
-    time.sleep(0.8)
-    typing("A strange new 'red hole' has opened somewhere out in the cosmos, quietly erasing the code that holds reality together.\n")
-    time.sleep(0.8)
-    typing("Languages grow simpler, memories fade, and entire systems vanish overnight. Nobody knows how to stop it.\n")
-    time.sleep(0.8)
-    typing(f"But somehow, {name}, you’ve woken up in the middle of it all—with nothing but a letter and a few cryptic clues that might lead to the last surviving computers.\n")
-    time.sleep(0.8)
-    typing("If there’s any hope left, the hope is you.")
-    time.sleep(0.8)
-    input("\n\033[32mPress Enter to continue...\033[0m")
-    typing("\nYou need to find the computers at each airport to piece together the letter and remember who you are. Each computer you find will give you a part of the letter and a clue to the next location.\n")
-    time.sleep(0.8)
-    typing("Your journey begins now...\n")
-    time.sleep(0.8)
-    input("\n\033[32mPress Enter to accept the mission...\033[0m")
-    print(f"{name}. You now are at {g.fmt(g.start)}")
-    print("Commands: list (show airports) | go <IDENT> | quit")
+@app.route('/move/<dest_ident>')
+def move(dest_ident):
+    game.move(dest_ident.upper().strip())
+    state = game.built_message()
+    json_response = json.dumps(state)
+    return Response(response=json_response, status=200, mimetype="application/json")
 
-    # ----Main loop----
-    while not g.win_condition() and g.days_left > 0:
-        print(f"Codes found: {len(g.found)}/5 | Days left: {g.days_left}/{g.max_days} | Current location: {g.fmt(g.cur)}")
-        cmd = input("Choose your next destination: ").strip().upper().split()
-        if not cmd:
-            continue
-        c = cmd[0].lower()
-        if c == "list":
-            remaining = [i for i in g.idents if i not in g.visited]
-            count = len(remaining)
-            if count > 0:
-                print(f"You only have {count} airports remaining:")
-                for ident in sorted(remaining): # show IDENT – NAME – MUNICIPALITY one per line
-                    print("  " + g.fmt(ident))
-            else:
-                print("No more unvisited airports")
-        elif c == "go" and len(cmd) >= 2:
-            print(g.move(cmd[1]))
-        elif c == "quit":
-            break
-        else:
-            print("Invalid command.")
-    if g.win_condition():
-        from good import show_good_end
-        show_good_end()
-        show_good()
-        print("You have visited:")
-        for ident in sorted(g.visited):
-            print("  " + g.fmt(ident))
-    elif g.days_left <= 0:
-        from bad import show_bad_end
-        show_bad_end()
-        show_bad()
-    else:
-        print(">>> GAME ENDED! <<<")
+@app.route('/state')
+def state():
+    if not game.messages:
+        game.add_message(f"You are now at {game.fmt(game.cur)}")
+    state = game.built_message()
+    json_response = json.dumps(state)
+    return Response(response=json_response, status=200, mimetype="application/json")
 
-# Winning situation
-def show_good():
-    typing("\n--- MISSION COMPLETE ---\n")
-    time.sleep(1)
+@app.route('/newgame')
+def newgame():
+    global game                                                 # global variable - use and modify the game variable
+    game = Coregame(db_conf)
+    state = game.built_message()
+    json_response = json.dumps(state)
+    return Response(response=json_response, status=200, mimetype="application/json")
 
-    typing("You have visited all the airports and decoded every hint.\n")
-    time.sleep(1)
+@app.errorhandler(404)
+def page_not_found(error_code):
+    response = {
+        "message": "Invalid endpoint",
+        "status": 404
+    }
+    json_response = json.dumps(response)
+    http_response = Response(response=json_response, status=404, mimetype="application/json")
+    return http_response
 
-    typing("The letter finally makes sense. You remember… it was you who caused the system error.\n")
-    time.sleep(1)
-
-    typing("You caused the Red Death, but you are the only one who could fix it.\n")
-    time.sleep(1)
-
-    typing("\n>>> Letter is now completed <<<\n")
-    time.sleep(1)
-
-    typing("\nIt’s painful, yes. But for the first time in weeks, you feel clarity.")
-    time.sleep(1)
-
-    typing("The Red Death recedes a little, just enough to stop immediate destruction.\n")
-    time.sleep(1)
-
-    typing("You sit on a bench in the empty airport lounge, reflecting.\n")
-    time.sleep(1)
-
-    typing("You have won not by reversing everything, but by understanding, remembering, and acting.\n")
-    time.sleep(1)
-
-    typing("\n>>> End of letter <<<\n")
-    time.sleep(1)
-
-# Losing situation
-def show_bad():
-    typing("\n--- TIME IS UP ---\n")
-    time.sleep(1)
-
-    typing("You didn’t manage to decode all the hints in time.\n")
-    time.sleep(1)
-
-    typing("The Red Death continues its work, erasing memories and simplifying everything.\n")
-    time.sleep(1)
-
-    typing("Fragments of the world you knew remain, but the full picture is lost.\n")
-    time.sleep(1)
-
-    typing("\n>>> Letter partially decoded <<<\n")
-    time.sleep(1)
-
-    typing("\nA familiar face appears—the ice cream seller from Italy.\n")
-    time.sleep(1)
-
-    typing("He hands you a cone and smiles gently.\n")
-    time.sleep(1)
-
-    typing('"Sometimes," he says, "there are battles you can’t win no matter how hard you try. But even then… there’s beauty in small moments."\n')
-    time.sleep(1)
-
-    typing("You take a bite, feeling the sweetness, and a quiet calm.\n")
-    time.sleep(1)
-
-    typing("On that bench, you rest, exhausted but alive.\n")
-    time.sleep(1)
+if __name__ == '__main__':
+    app.run(use_reloader=True, host='127.0.0.1', port=5000)
