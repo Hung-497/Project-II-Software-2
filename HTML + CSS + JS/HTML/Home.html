@@ -1,21 +1,43 @@
 <!-- There will be many comments for our learning and what are we doing -->
 <!DOCTYPE html>
-<html lang="en"> <!-- Language set to english -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survival Flight</title>
-    <link rel="stylesheet" href="../CSS/our_game.css"> <!-- 'Two dots' means go to the parent folder -->
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="../CSS/our_game.css">
 </head>
+
 <body>
     <div class="container">
-        <img src="your-image.png" class="menu-image">
+        <h1 class="game-title">Survival Flight</h1>
 
-         <div class="button-row">
-            <button class="menu-btn">Start Game</button>
+        <div class="button-row">
+            <button class="menu-btn" id="startBtn">Start Game</button>
             <button class="menu-btn exit">Exit</button>
-         </div>
+        </div>
     </div>
 
+    <!-- Popup -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerNameInput" placeholder="Player name...">
+            <br><br>
+            <button class="menu-btn" id="confirmNameBtn">Confirm</button>
+        </div>
+    </div>
+
+    <!-- Link JavaScript -->
+    <script src="../JS/game.js"></script>
+
+<footer class="footer">
+    <p>© 2025 Survival Flight. All Rights Reserved.</p>
+</footer>
 </body>
+</html>
+
+
 </html>
