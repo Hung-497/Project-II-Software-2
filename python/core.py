@@ -62,15 +62,15 @@ class Coregame:
         "EHEH": "Eindhoven",
         "EDDF": "Frankfurt"
         }
-        fixed_name = {
+        fixed_name = {              #for messages
             "LIRF": "Rome–Fiumicino Leonardo da Vinci Interna",
             "GCTS": "Tenerife Sur Airport",
             "LFPG": "Charles de Gaulle International Airport",
             "EHEH": "Eindhoven Airport",
             "EDDF": "Frankfurt am Main Airport"}
-        fixed_coords = {
+        fixed_coords = {             #for markers on map
         "LIRF": (41.8003, 12.2389),
-        "GCTS": (28.0445, -16.5725),
+        "GCTS": (28.0445, -16.5725),       
         "LFPG": (49.0097, 2.5479),
         "EHEH": (51.4501, 5.3745),
         "EDDF": (50.0379, 8.5622),
@@ -216,7 +216,7 @@ def move(dest_ident):
         return Response(response=json_response, status=200, mimetype="application/json")
     except ValueError:
         response = {
-            "message": "Invalid number as addend",
+            "message": "Invalid",
             "status": 400
         }
         json_response = json.dumps(response)
@@ -233,7 +233,7 @@ def state():
         return Response(response=json_response, status=200, mimetype="application/json")
     except ValueError:
         response = {
-            "message": "Invalid number as addend",
+            "message": "Invalid",
             "status": 400
         }
         json_response = json.dumps(response)
@@ -250,7 +250,7 @@ def newgame():
         return Response(response=json_response, status=200, mimetype="application/json")
     except ValueError:
         response = {
-            "message": "Invalid number as addend",
+            "message": "Invalid",
             "status": 400
         }
         json_response = json.dumps(response)

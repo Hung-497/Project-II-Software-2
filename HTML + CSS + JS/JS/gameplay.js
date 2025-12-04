@@ -1,4 +1,4 @@
-const map = L.map("map").setView([54.5, 15.2], 4);
+const map = L.map("map").setView([54.5, 15.2], 4);            //initialize map view
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 20,
 }).addTo(map);
@@ -11,7 +11,7 @@ const planeIcon = L.icon({         //plane icon
 });
 
 'use strict';
-let selectedAirportButton = null;
+let selectedAirportButton = null;        
 let selectedAirport = null;
 let airportMarkers = {};
 let airportButtons = {};
@@ -52,8 +52,8 @@ function renderAirportList(airports) {             //render airport list and mar
     });
 }
 
-function SelectedAirport(code) {
-    const btn = airportButtons[code];
+function SelectedAirport(code) {                                 //select airport from map marker
+    const btn = airportButtons[code];                            //get corresponding button
     if (selectedAirportButton !== null) {
         selectedAirportButton.classList.remove("selected");
     }
@@ -78,7 +78,7 @@ function renderMessages(messages) {            //render messages
     messagesElement.innerHTML = msg.replace(/\n/g, "<br>");        //change new line to <br>
 }
 
-function updateCurrentPlaneMarker(lat, lon, code, name) {
+function updateCurrentPlaneMarker(lat, lon, code, name) {                              //update current plane marker on map
     if (currentPlaneMarker) {
         map.removeLayer(currentPlaneMarker);
     }
@@ -90,7 +90,7 @@ function updateCurrentPlaneMarker(lat, lon, code, name) {
 
 async function fetchAirport() {
     try {
-        const response = await fetch("http://127.0.0.1:5000/state");
+        const response = await fetch("http://127.0.0.1:5000/state");                   //fetch start state from backend
         const data = await response.json();
         const cur = data.current_airport_info;
         updateCurrentPlaneMarker(cur.lat, cur.lon, cur.code, cur.name);
@@ -103,7 +103,7 @@ async function fetchAirport() {
     }
 }
 
-async function goAirport(selectedAirport) {
+async function goAirport(selectedAirport) {                     //fetch move to selected airport from backend
     const target = selectedAirport;
     if (!target) {
         alert("Please pick an airport.");
@@ -118,7 +118,7 @@ async function goAirport(selectedAirport) {
         renderDaysLeft(data.days_left);
         renderCodefound(data.code_found);
         renderMessages(data.messages);
-        if (data.outcome === "lose" && data.game_over === true) {
+        if (data.outcome === "lose" && data.game_over === true) {          //redirect to good or bad end based on outcome and game over 
             document.location.href = "badend.html"
         }
         if (data.outcome === "win" && data.game_over === true) {
@@ -129,7 +129,7 @@ async function goAirport(selectedAirport) {
     }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {            //initial fetch on page load
     fetchAirport();
 
     const goButton = document.getElementById("go-button");
