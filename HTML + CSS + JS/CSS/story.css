@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding-top: 40px;
-    background: url("https://media3.giphy.com/media/ei4juXBXLJuc2gBCgg/giphy.gif")
+    background: url("../HTML/image.png")
                 no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
@@ -66,7 +66,7 @@ html, body {
     color: black;
     font-size: 18px;
     line-height: 1.5;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 0px black;   /* 0 0 0 5px black */
 }
 
 /* Optional: custom scrollbar look */

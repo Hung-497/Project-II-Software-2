@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("https://media3.giphy.com/media/ei4juXBXLJuc2gBCgg/giphy.gif")
+    background: url("../HTML/image.png")
                 no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
