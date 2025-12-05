@@ -107,7 +107,7 @@ html, body {
     left: 50%;                /* move to center */
     transform: translateX(-50%);  /* pull it back by half width */
     text-align: center;
-    color: black;
+    color: white;
     width: max-content;       /* keeps it compact */
     font-size: 16px;
     text-shadow: 0 0 8px black;
