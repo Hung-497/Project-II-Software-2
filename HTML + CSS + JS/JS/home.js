@@ -25,7 +25,7 @@ confirmBtn.addEventListener("click", () => {
     // Close modal
     modal.style.display = "none";
 
-    // Redirect to story page
+    // Redirect to story page and Game_Play page
     window.location.href = "story.html";
 });
 
