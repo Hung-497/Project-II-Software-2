@@ -7,22 +7,73 @@ body {
     margin:0;
     padding:0;
     height: 100%;
-    background: url("Images/empty-land.jpg") no-repeat center fixed ;
+    background: url("Images/empty-land.gif") no-repeat center fixed ;
     background-size: cover;
 
 }
+
+.hidden {
+display: none;
+}
+
+#screen-story {
+    color: white;
+    font-size: 10px
+
+}
+
+#story-text {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff0011;
+    text-shadow: 5px 5px 5px green ;
+    text-align: center;
+}
+
+#story-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+#btn-continue {
+    margin-right: 30px;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 25px;
+    border-color: #ff0011;
+    background-color: #ff8c78;
+    color: seagreen;
+}
+
+#btn-exit {
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 25px;
+    border-color: #ff0011;
+    background-color: #ff8c78;
+    color: lightgreen;
+}
+
+
 
 .Bad-end h1{
     text-align: center;
     padding-top: 0;
     text-shadow: 10px 10px 10px red;
-    font-size: 75px;
+    font-size: 85px;
 }
 
 #plane-crashing {
     width: 408px;
     height: 612px;
-    background: url("Images/plane-crashing.gif");
+    background: url("Images/plane-crashing1.gif");
     image-rendering: pixelated;
     animation: fly 0.6s steps(5), fall 3s ease-in-out forwards infinite;
     position: relative;

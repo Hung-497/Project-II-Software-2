@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Frames-for-bad-end.css">
+    <script src="sample.js" defer></script>
 
     <title>BAD ENDING</title>
 </head>
 <body>
 <div class="Bad-end">
     <h1>YOU LOST</h1></div>
-<div id="plane-crashing"></div>
+<div id="screen-story">
+    <p id="story-text" class="hidden">
+        Unfortunately, you have failed your mission. <br>
+        The world is lost.<br>
+    The game is already over. Please start a new game.</p>
+    <div id="story-buttons" class="hidden">
+        <button id="btn-continue" class="hidden">Try again</button>
+        <button id="btn-exit" class="hidden">Exit</button></div>
+</div>
+<div id="plane-crashing" class="hidden"></div>
 
 </body>
 </html>
