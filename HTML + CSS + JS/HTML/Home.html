@@ -1,27 +1,36 @@
 <!-- There will be many comments for our learning and what are we doing -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>    <!-- This file is written in HTML5. -->
+<html lang="en">    <!-- The declaration, that the page is in english  -->
+<head>             <!-- information about the page, this is invisible part of html page -->
+    <meta charset="UTF-8">  <!-- Allows the page to display, letters, symbols,emojis and different languages -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survival Flight</title>
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="../CSS/our_game.css">
+    <link rel="stylesheet" href="../CSS/home.css">
 </head>
 
 <body>
     <div class="container">
         <h1 class="game-title">Survival Flight</h1>
         <div class="button-row">
-            <button class="menu-btn">Start Game</button>
-            <button class="menu-btn exit">Exit</button>
+            <button class="menu-btn" id="startBtn">Start Game</button>
+            <button class="menu-btn exit" id="exitBtn">Exit</button>
         </div>
     </div>
-
-<footer class="footer">
-    <p>© 2025 Survival Flight. All Rights Reserved.</p>
-</footer>
+   <!-- This is outer JS for the pop -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerNameInput" placeholder="Your name...">
+            <br><br>
+            <button class="menu-btn" id="confirmNameBtn">Confirm</button>
+        </div>
+    </div>
+    <script src="../JS/home.js"></script>
+    <footer class="footer">
+        <p>© 2025 Survival Flight. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
 
