@@ -11,12 +11,71 @@ body {
     background-size: cover;
 
 }
+.hidden {
+    display: none;
+}
 
 .Good-end h1{
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 900;
+    font-style: normal;
     text-align: center;
     padding-top: 0;
-    text-shadow: 10px 10px 10px gold;
-    font-size: 70px;
+    text-shadow: 10px 10px 10px black;
+    font-size: 65px;
+}
+#story-text {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+    color: #000080;
+    text-shadow: 5px 5px 5px green ;
+    text-align: center;
+}
+
+#story-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#btn-continue {
+    margin-right: 30px;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 25px;
+    border-color: #ff0011;
+    background-color: #ff8c78;
+    color: seagreen;
+}
+
+#btn-continue:hover {
+    color: #000;
+    background: linear-gradient(135deg, #0ff, #09f);
+    box-shadow: 0 0 25px #0ff, 0 0 50px #09f;
+    transform: translateY(-3px);
+}
+
+#btn-exit {
+    font-size: 19px;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 25px;
+    border-color: #ff0011;
+    background-color: #ff8c78;
+    color: lightgreen;
+}
+
+#btn-exit:hover {
+    color: #000;
+    background: linear-gradient(135deg, #0ff, #09f);
+    box-shadow: 0 0 25px #0ff, 0 0 50px #09f;
+    transform: translateY(-3px);
 }
 
 #mission-success img{
