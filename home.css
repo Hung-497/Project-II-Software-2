@@ -53,6 +53,7 @@ a {
 
 .button {
   position: relative;
+    margin-right: 12px;
   background-color: var(--first-color);
   color: #fff;
   padding: .9rem 2.20rem;
