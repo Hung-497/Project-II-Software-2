@@ -112,3 +112,25 @@ html, body {
     font-size: 16px;
     text-shadow: 0 0 8px black;
 }
+
+/*This part is for blurred story text*/
+.story-text {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+
+    filter: blur(6px);
+    transition: filter 0.3s ease;
+    cursor: pointer;
+}
+
+/* Reveal on hover */
+.story-text:hover {
+    filter: blur(0);
+}
+
+/* Mobile support */
+.story-text:active {
+    filter: blur(0);
+}
