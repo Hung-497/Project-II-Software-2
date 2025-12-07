@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #1a1a1a;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-link {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #00c3ff;
+}
+
+.team {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  gap: 20px;
+}
+
+/* Flip Card */
+.flip-card {
+  background-color: transparent;
+  width: 220px;
+  height: 300px;
+  perspective: 1000px; /* for the 3D effect; the camera distance */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /*flip animation speed*/
+  transition: transform 0.8s;
+  /*flip animation speed*/
+  transform-style: preserve-3d;
+}
+
+/*mouse hover effect*/
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*when the other face of the card is hidden, you can't see through*/
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*what you see before flipping*/
+.flip-card-front {
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*image (the round photos) styling*/
+.flip-card-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/*styling the other side of the card*/
+.flip-card-back {
+  background-color: #222;
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* About the game section */
+.about-game {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer {
+  padding: 20px;
+  background: #1a1a1a;
+  margin-top: 30px;
+}
+
+/* navbar links hover as in realhome.html */
+.nav-link {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: blue;
+  transition: 0.25s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: blue;
+  text-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 20px blue;
+  transform: scale(1.05);
+}
+
+/* Flip cards hover */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+/* Add hover glow to h1 */
+#meeting:hover {
+  text-shadow: 0 0 8px #0ff, 0 0 16px #0ff;
+  transform: scale(1.05);
+  transition: 0.3s;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="sample.js" defer></script>
+    <title>Survival Flight</title>
+</head>
+
+<body>
+    <audio id="background-music" loop autoplay>
+        <source src="Music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="video">
+        <img src="background1.png" class="back-video">
+    </div>
+
+    <header class="nav-bar">
+        <div class="nav-title">
+            <h1>SURVIVAL FLIGHT</h1>
+        </div>
+        <nav class="nav-links">
+        </nav>
+
+    </header>
+    <div class="game-container">
+
+        <main class="content">
+            <div class="map-panel">
+                <div id="map"></div>
+            </div>
+
+            <aside class="side-panel">
+                <div class="player-box">
+                    <label for="player-name">PLAYER NAME</label>
+                    <input type="text" id="player-name" readonly>
+                </div>
+
+                <div class="main-status-area">
+                    <div class="status-header">
+                        <h2>FLIGHT STATUS</h2>
+                    </div>
+                    <footer class="status-bar">
+                        <div class="status-box">
+                            ✈️ <span id="airport visited-count"></span>
+                        </div>
+
+                        <div class="status-box">
+                            🔐 <span id="codes encrypted-count"></span>
+                        </div>
+                    </footer>
+                    <p class="messages"></p>
+                </div>
+
+                <h2 class="airports-title">AIRPORTS</h2>
+                <div id="airport-list" class="airport-list"></div>
+                <button id="go-button" class="go-button">GO</button>
+            </aside>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    padding:0;
+    height: 100%;
+    background: url("sunflower.jpg")  center fixed ;
+    background-size: cover;
+
+}
+
+.Good-end h1{
+    text-align: center;
+    padding-top: 0;
+    text-shadow: 10px 10px 10px gold;
+    font-size: 70px;
+}
+
+#mission-success img{
+    width: 100%;
+    height: auto;
+    background: url("plane-return.gif") center no-repeat;
+    background-size: contain;
+    animation: fly 1s steps(10) infinite;
+    position: relative;
+}
+
+
+@keyframes fly {
+    from { background-position: 0 0; }
+    to   { background-position: -300px 0; }
+}
