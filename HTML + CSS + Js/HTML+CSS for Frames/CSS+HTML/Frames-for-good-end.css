@@ -27,11 +27,11 @@ body {
 #story-text {
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 900;
+    font-weight: 700;
     font-style: normal;
-    font-size: 20px;
-    color: #000080;
-    text-shadow: 5px 5px 5px green ;
+    font-size: 32px;
+    color: cyan;
+    text-shadow: 5px 5px 5px black ;
     text-align: center;
 }
 
