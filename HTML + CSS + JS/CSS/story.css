@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding-top: 40px;
-    background: url("../HTML/ezpic.gif")
+    background: url("../HTML/image.png")
                 no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
@@ -35,13 +35,14 @@ html, body {
 }
 
 /* This is css for gif story */
-.story-gif {
-    width: 50%;
-    max-width: 800px;
+.story-video img {
+    width: 25%;        /* about half of the original 50% */
+    max-width: 400px; /* hard cap so it stays small on big screens */
+    height: auto;
+
     border-radius: 10px;
     box-shadow: 0 0 12px rgba(255,255,255,0.3);
 }
-
 
 .story-video {
     width: 100%;
@@ -123,7 +124,7 @@ html, body {
 
 /*This part is for blurred story text*/
 .story-text {
-    color: white;
+    color: black;
     font-size: 18px;
     line-height: 1.6;
     text-align: center;
