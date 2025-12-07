@@ -6,9 +6,9 @@ import json
 connection = mysql.connector.connect(
          host='127.0.0.1',
          port= 3306,
-         database='demogame',
+         database='flightgame',
          user='root',
-         password='Giahung@!497',
+         password='password',
          autocommit=True,
          auth_plugin="mysql_native_password",
          use_pure=True

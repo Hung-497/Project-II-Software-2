@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXYwOHpzdXlob2YzaG10cHRnNHZncXc2cXdzeWx1ZWU1aTZxa3BpaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s0iiyoVWYdGoM/giphy.gif")
+    no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
