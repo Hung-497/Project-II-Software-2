@@ -15,7 +15,6 @@ body {
     z-index: -1;
     overflow: hidden;
 }
-
 .nav-bar {
     width: 100%;
     position: fixed;
@@ -41,10 +40,10 @@ body {
     letter-spacing: 2px;
 
     text-shadow:
-        2px 2px 0 #444,
-        4px 4px 0 #333,
-        6px 6px 0 #222,
-        8px 8px 0 #111;
+       2px 2px 0 #444,
+       4px 4px 0 #333,
+       6px 6px 0 #222,
+       8px 8px 0 #111;
 
     -webkit-text-stroke: 3px black;
 
@@ -91,7 +90,7 @@ h1 {
 .airports-title {
     margin-top: auto;
     text-align: center;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid black ;
 }
 
 .airport-list {
@@ -133,7 +132,6 @@ h1 {
     padding: 0 15px 15px 15px;
     margin-top: 5px;
 }
-
 .status-header {
     text-align: center;
     border-bottom: 2px solid black;
@@ -146,7 +144,6 @@ h1 {
     font-size: 1.1em;
     color: black;
 }
-
 .status-bar {
     display: flex;
     justify-content: space-around;
@@ -223,4 +220,11 @@ h1 {
 
 .messages {
     white-space: pre-line;
+}
+
+#player-name {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: rgba(255,255,255,0.15);
 }

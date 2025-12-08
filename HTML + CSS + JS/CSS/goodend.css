@@ -4,22 +4,75 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
     height: 100%;
-    background: url("../IMG/sunflower.jpg") center fixed;
+    background: url("../IMG/sunflower.jpg")  center fixed ;
     background-size: cover;
 
 }
-
-.Good-end h1 {
-    text-align: center;
-    padding-top: 0;
-    text-shadow: 10px 10px 10px gold;
-    font-size: 70px;
+.hidden {
+    display: none;
 }
 
-#mission-success img {
+.Good-end h1{
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;
+    padding-top: 0;
+    text-shadow: 10px 10px 10px black;
+    font-size: 65px;
+}
+#story-text {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    color: cyan;
+    text-shadow: 5px 5px 5px black ;
+    text-align: center;
+}
+
+#story-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#btn-continue, #btn-exit {
+    font-family: "Pixelify Sans", sans-serif;
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(180deg, #9dd34a 0%, #6a9c30 100%);
+    border: 4px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 0 #000000, inset 1px 1px 0 0 #9dd34a, -2px -2px 0 0 #85b03f;
+    transition: all 0.1s ease-out;
+    margin-right: 0;
+}
+
+#btn-continue:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 0 #000000, inset 1px 1px 0 0 #9dd34a, -1px -1px 0 0 #85b03f;
+    color: ghostwhite;
+    background: linear-gradient(180deg, blue 0%, lightskyblue 100%);
+}
+
+#btn-exit:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 0 #000000, inset 1px 1px 0 0 #9dd34a, -1px -1px 0 0 #85b03f;
+    color: ghostwhite;
+    background: linear-gradient(180deg, red 0%, palevioletred 100%);
+}
+
+#mission-success img{
     width: 100%;
     height: auto;
     background: url("../IMG/plane-return.gif") center no-repeat;
@@ -30,11 +83,6 @@ body {
 
 
 @keyframes fly {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: -300px 0;
-    }
+    from { background-position: 0 0; }
+    to   { background-position: -300px 0; }
 }

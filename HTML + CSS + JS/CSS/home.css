@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url(../IMG/clouds_gif.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: black;
+  color: white;
+}
+
+/* header, that is, the 'navigation' bar on the top*/
+header {
+  background: #1a1a1a;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-link {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+a {
+  /*'position: relative' allows the underline effect (::after) to position itself relative to the link*/
+  position: relative;
+  color: white;
+  /*removes automatic underline*/
+  text-decoration: none;
+  /*makes the effect appear smoothly*/
+  transition: color 0.25s, text-shadow 0.25s;
+}
+
+/*a pseudo-element*/
+a::after {
+  /*creates the element, otherwise wouldn't exist*/
+  content: "";
+  /*placed exactly under the link*/
+  position: absolute;
+  /*4px below the text*/
+  bottom: -4px;
+  left: 50%;
+  /*starts invisible*/
+  width: 0;
+  height: 3px;
+  background: blue; /* neon underline color */
+  /*neon glow*/
+  box-shadow: 0 0 6px blue, 0 0 12px blue;
+  transition: 0.25s ease;
+  /*centers the effect instead of starting from left*/
+  transform: translateX(-50%);
+}
+
+a:hover {
+  color: blue;
+  text-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 20px blue;
+}
+
+/*the '::after' element when hovering over it*/
+a:hover::after {
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Losers - the whole section */
+.leaderboard-section {
+  background-color: rgba(0, 0, 38, 0.465);
+  width: 60%;
+  margin: 60px auto;
+  text-align: center;
+}
+
+/*logo at the centre*/
+.logo2 {
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 100px;
+}
+
+/*losers the table*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/*both table header and table data (child of tr) -every single cell*/
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #0902c8;
+}
+
+/*Select every table row (tr) that is even, and give it the background color.*/
+tr:nth-child(even) {
+  background: #05003c;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  color: #888;
+}
+
+/*the hint*/
+#hoverHint {
+  /*makes hint follow the cursor -> doesn't more for instance when scrolling, but sticks to the screen*/
+  position: fixed;
+  /*without this hint could break: appear -> be infront of the logo -> break, but with it ignores the pointer events*/
+  pointer-events: none;
+  font-size: 14px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  /*hint starts invisible, goes to opacity: 1 only when JS tells so*/
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease;
+}
+
+/*works with JS translation; under normal conditions opacity: 1, with transition slowly fades out*/
+body {
+  transition: opacity 0.7s ease;
+}
+
+/*until opacity is 0, after which it redirects (cause that's where we are applying it - in links)*/
+body.fade-out {
+  opacity: 0;
+}

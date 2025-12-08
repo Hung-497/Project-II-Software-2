@@ -1,0 +1,34 @@
+    <!DOCTYPE html>    <!-- This file is written in HTML5. -->
+    <html lang="en">    <!-- The declaration, that the page is in english  -->
+    <head>             <!-- information about the page, this is invisible part of html page -->
+    <meta charset="UTF-8">  <!-- Allows the page to display, letters, symbols,emojis and different languages. It prevents text corruption-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the website fit correctly on phones, tablets, and computers. -->
+    <title>Survival Flight</title>  <!--Browser Tab name -->
+    <link rel="stylesheet" href="../CSS/start.css">
+<body>
+    <div class="container">
+        <h1 class="game-title">Survival Flight</h1>
+
+        <a href="#" class="button" id="startBtn"> <span class="button__text">
+                play </span>
+            <img src="../IMG/assets/img/cone.png" alt="" class="button__cone">
+            <img src="../IMG/assets/img/torus.png" alt="" class="button__torus">
+            <img src="../IMG/assets/img/icosahedron.png" alt="" class="button__icosahedron">
+            <img src="../IMG/assets/img/sphere.png" alt="" class="button__sphere">
+        </a>
+
+
+    </div>
+   <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerNameInput" placeholder="Your name...">
+            <br><br>
+            <button class="menu-btn" id="confirmNameBtn">Confirm</button>
+        </div>
+    </div>
+    <script src="../JS/start.js"></script>
+    <footer class="footer">
+        <p>© 2025 Survival Flight. All Rights Reserved.</p>
+    </footer>
+</body>

@@ -1,6 +1,6 @@
 import mysql.connector
 import random
-from flask import Flask, Response
+from flask import Flask, Response, request, jsonify
 import json
 
 connection = mysql.connector.connect(
@@ -256,6 +256,53 @@ def newgame():
         json_response = json.dumps(response)
         http_response = Response(response=json_response, status=400, mimetype="application/json")
         return http_response
+
+
+def get_db_connection():
+    return mysql.connector.connect(
+        host='127.0.0.1',
+         port= 3306,
+         database='demogame',
+         user='root',
+         password='Giahung@!497',
+         autocommit=True,
+         auth_plugin="mysql_native_password",
+         use_pure=True
+)
+
+# Endpoint to submit score
+@app.route("/submit-score", methods=["POST"])
+def submit_score():
+    data = request.json
+    player_name = data.get("player_name")
+    score = data.get("score")  # could be tries_used
+
+    if not player_name or score is None:
+        return jsonify({"error": "Missing player_name or score"}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO leaderboard (player_name, score) VALUES (%s, %s)",
+        (player_name, score)
+    )
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return jsonify({"message": "Score submitted successfully"}), 200
+
+# Endpoint to get leaderboard
+@app.route("/leaderboard")
+def leaderboard():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    # fewer tries - better score
+    cursor.execute("SELECT player_name, score FROM leaderboard ORDER BY score ASC LIMIT 10")
+    results = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return jsonify(results)
 
 @app.errorhandler(404)
 def page_not_found(error_code):

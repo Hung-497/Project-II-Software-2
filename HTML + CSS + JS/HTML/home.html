@@ -1,0 +1,56 @@
+<!-- This is the real homepage, what Arsalan has is a fake #Mariaisthebest-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/home.css" />
+    <title>Flight Game</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Survival Flight</div>
+
+      <!--This is the navigation bar (header)-->
+      <nav>
+        <a href="../HTML/home.html" class="nav-link">Home</a>
+        <a href="../HTML/start.html" class="nav-link" id="navgame">Game</a>
+        <a href="../HTML/about.html" class="nav-link">Developers</a>
+      </nav>
+    </header>
+
+    <!--the logotype at the centre-ville-->
+    <section class="logo2" id="playLogo">Survival Flight</section>
+
+    <!--makes the 'hint' element; more in realhome.css-->
+    <div id="hoverHint">Click to play</div>
+
+    <!--Leaderboard-->
+
+    <section class="leaderboard-section">
+      <h1>Leaderboard</h1>
+
+      <!--This makes a table (leaderboard), 'thead' is the head of the table, 'tr' defines a row, 
+'th' is the child element of the 'tr' and defines the header of that particular row-->
+      <table id="leaderboard">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JS inserts rows here -->
+        </tbody>
+      </table>
+    </section>
+
+    <footer>© 2025 Survival Flight. All Rights Reserved.</footer>
+
+    <script src="../JS/leaderboard.js"></script>
+    <script src="../JS/home.js"></script>
+  </body>
+</html>

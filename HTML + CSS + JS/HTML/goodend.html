@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/goodend.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>GOOD ENDING</title>
+    <script src="../JS/goodend.js" defer></script>
 </head>
-
 <body>
-    <div class="Good-end">
-        <h1>CONGRATULATIONS</h1>
-    </div>
-    <div id="Mission-success"></div>
-    <img src="../IMG/plane-return.gif" alt="">
-
+<div class="Good-end">
+    <h1>CONGRATULATIONS!<br>GAME WIN</h1></div>
+<div id="Mission-success">
+<p id="story-text" class="hidden">
+        You have successfully completed your mission and saved the world! <br>
+        The game is already over.<br>
+        Please start a new game.</p>
+    <div id="story-buttons" class="hidden">
+        <button id="btn-continue" class="hidden">Play Again</button>
+        <button id="btn-exit" class="hidden">Continue</button></div>
+    <img src="../IMG/plane-return.gif" id="plane-return" class="hidden" alt="">
+</div>
 </body>

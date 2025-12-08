@@ -1,0 +1,145 @@
+/* Background */
+body {
+    margin: 0;
+    padding-top: 40px;
+    background: url("../IMG/image.png")
+                no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;      /* stops page from scrolling */
+}
+
+.story-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 900px;
+
+    height: 100vh;      /* full locked screen height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 40px;
+    padding-bottom: 120px; /* space for footer */
+    overflow: hidden;      /* container never scrolls */
+}
+
+/* This is css for gif story */
+.story-video img {
+    width: 25%;        /* about half of the original 50% */
+    max-width: 400px; /* hard cap so it stays small on big screens */
+    height: auto;
+
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255,255,255,0.3);
+}
+
+.story-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;   /* centers the video horizontally */
+}
+
+
+
+.story-video video {
+    width: 50%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255,255,255,0.3);
+}
+
+.text-box {
+    width: 90%;                /* size can be changed, 70 */
+    max-width: 800px;
+    height: 100px;             /* height of the box, 200 */
+    margin: 20px auto;         /* center it */
+    padding: 15px;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid white;
+    border-radius: 10px;
+
+    overflow-y: auto;          /* ENABLES SCROLLING */
+    overflow-x: hidden;
+
+    color: black;
+    font-size: 18px;
+    line-height: 1.5;
+    text-shadow: 0 0 0px black;   /* 0 0 0 5px black */
+}
+
+/* Optional: custom scrollbar look */
+.text-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.text-box::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.menu-btn {
+    width: 180px;
+    height: 50px;
+    padding: 12px 30px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
+}
+
+.menu-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+
+.footer {
+    position: fixed;          /* always at bottom */
+    bottom: 20px;
+    left: 50%;                /* move to center */
+    transform: translateX(-50%);  /* pull it back by half width */
+    text-align: center;
+    color: white;
+    width: max-content;       /* keeps it compact */
+    font-size: 16px;
+    text-shadow: 0 0 8px black;
+}
+
+/*This part is for blurred story text*/
+.story-text {
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+
+    filter: blur(6px);
+    transition: filter 0.3s ease;
+    cursor: pointer;
+}
+
+/* Reveal on hover */
+.story-text:hover {
+    filter: blur(0);
+}
+
+/* Mobile support */
+.story-text:active {
+    filter: blur(0);
+}
