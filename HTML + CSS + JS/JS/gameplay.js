@@ -120,9 +120,11 @@ async function goAirport(selectedAirport) {
         renderMessages(data.messages);
         if (data.outcome === "lose" && data.game_over === true) {
             document.location.href = "badend.html"
+            document.getElementById("background-music").play()
         }
         if (data.outcome === "win" && data.game_over === true) {
             document.location.href = "goodend.html"
+            document.getElementById("background-music").play()
         }
     } catch (error) {
         console.error("Error moving to airport:", error);
