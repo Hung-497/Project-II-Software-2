@@ -6,63 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/sample.js" defer></script>
+    <link rel="stylesheet" href="../CSS/gameplay.css">
+    <script src="../JS/gameplay.js" defer></script>
     <title>Survival Flight</title>
 </head>
+
 <body>
-<div class ="video">
-    <video loop autoplay class ="back-video">
-    <source src="Images/Sky.mp4" type="video/mp4">
-    </video>
-</div>
+    <audio id="background-music" loop autoplay>
+        <source src="../IMG/Music.mp3" type="audio/mpeg">
+    </audio>
+    <div class="video">
+        <img src="../IMG/background1.png" class="back-video">
+    </div>
 
     <header class="nav-bar">
-        <div class ="nav-title">
-        <h1>SURVIVAL FLIGHT</h1>
+        <div class="nav-title">
+            <h1>SURVIVAL FLIGHT</h1>
         </div>
         <nav class="nav-links">
         </nav>
 
     </header>
-<div class="game-container">
+    <div class="game-container">
 
-    <main class="content">
-        <div class="map-panel">
-            <div id="map"></div>
-        </div>
-
-        <aside class="side-panel">
-            <div class="player-box">
-        <label for="player-name">PLAYER NAME</label>
-        <input type="text" id="player-name" readonly>
+        <main class="content">
+            <div class="map-panel">
+                <div id="map"></div>
             </div>
 
-            <div class="main-status-area">
-    <div class="status-header">
-        <h2>FLIGHT STATUS</h2>
+            <aside class="side-panel">
+                <div class="player-box">
+                    <label for="player-name">PLAYER NAME</label>
+                    <input type="text" id="player-name" readonly>
+                </div>
+
+                <div class="main-status-area">
+                    <div class="status-header">
+                        <h2>FLIGHT STATUS</h2>
+                    </div>
+                    <footer class="status-bar">
+                        <div class="status-box">
+                            ✈️ <span id="airport visited-count"></span>
+                        </div>
+
+                        <div class="status-box">
+                            🔐 <span id="codes encrypted-count"></span>
+                        </div>
+                    </footer>
+                    <p class="messages"></p>
+                </div>
+
+                <h2 class="airports-title">AIRPORTS</h2>
+                <div id="airport-list" class="airport-list"></div>
+                <button id="go-button" class="go-button">GO</button>
+            </aside>
+            <footer class="footer">
+                <audio id="music" src="Hotel - Toby Fox.mp3" loop preload="auto"></audio>
+    <label class="switch">
+      <input type="checkbox" id="musicToggle">
+      <span class="slider round"></span></label>
+        <div>Music Status: <span id="status">OFF</span>
+        <script src="home2.js"></script></div>
+            </footer>
+        </main>
     </div>
-
-            <footer class="status-bar">
-        <div class="status-box">
-            ✈️ <span id="airport visited-count">0</span>/21
-        </div>
-
-        <div class="status-box">
-            🔐 <span id="codes encrypted-count">3</span>/6
-        </div>
-    </footer>
-            </div>
-
-            <h2 class="airports-title">AIRPORTS</h2>
-                <ul id="airport-list" class="airport-list"></ul>
-            <button id="go-button" class="go-button">GO</button>
-        </aside>
-
-    </main>
-
-
-</div>
-
 </body>
+
 </html>
