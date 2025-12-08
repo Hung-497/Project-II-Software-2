@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding-top: 40px;
-    background: url("ezpic.gif")
+    background: url("image.png")
                 no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
@@ -53,9 +53,9 @@ html, body {
 .text-box {
     font-family: "Pixelify Sans", sans-serif;
     font-weight: 900;
-    width: 90%;                /* size can be changed, 70 */
+    width: 90%; /* size can be changed, 70 */
     max-width: 800px;
-    height: 100px;             /* height of the box, 200 */
+    height: 40%;             /* height of the box, 200 */
     margin: 20px auto;         /* center it */
     padding: 15px;
     background: rgba(255,255,255,0.15);
