@@ -51,7 +51,7 @@ html, body {
 }
 
 .text-box {
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: "Bungee Spice", sans-serif;
     font-weight: 900;
     width: 90%; /* size can be changed, 70 */
     max-width: 800px;
@@ -61,11 +61,12 @@ html, body {
     background: rgba(255,255,255,0.15);
     border: 2px solid white;
     border-radius: 10px;
+    backdrop-filter: blur(2px);
 
     overflow-y: auto;          /* ENABLES SCROLLING */
     overflow-x: hidden;
 
-    color: black;
+    color: blue;
     font-size: 18px;
     line-height: 1.5;
     text-shadow: 0 0 0 black;   /* 0 0 0 5px black */
