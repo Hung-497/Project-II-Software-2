@@ -12,7 +12,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden;      /* stops page from scrolling */
+    overflow: hidden;
 }
 
 .story-container {
@@ -34,15 +34,6 @@ html, body {
     overflow: hidden;      /* container never scrolls */
 }
 
-/* This is css for gif story */
-.story-video img {
-    width: 25%;        /* about half of the original 50% */
-    max-width: 400px; /* hard cap so it stays small on big screens */
-    height: auto;
-
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(255,255,255,0.3);
-}
 
 .story-video {
     width: 100%;
@@ -60,22 +51,25 @@ html, body {
 }
 
 .text-box {
-    width: 90%;                /* size can be changed, 70 */
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 900;
+    width: 90%; /* size can be changed, 70 */
     max-width: 800px;
-    height: 100px;             /* height of the box, 200 */
+    height: 40%;             /* height of the box, 200 */
     margin: 20px auto;         /* center it */
     padding: 15px;
     background: rgba(255,255,255,0.15);
     border: 2px solid white;
     border-radius: 10px;
+    backdrop-filter: blur(2px);
 
     overflow-y: auto;          /* ENABLES SCROLLING */
     overflow-x: hidden;
 
-    color: black;
+    color: blue;
     font-size: 18px;
     line-height: 1.5;
-    text-shadow: 0 0 0px black;   /* 0 0 0 5px black */
+    text-shadow: 0 0 0 black;   /* 0 0 0 5px black */
 }
 
 /* Optional: custom scrollbar look */
@@ -88,25 +82,26 @@ html, body {
     border-radius: 10px;
 }
 
-.menu-btn {
-    width: 180px;
-    height: 50px;
-    padding: 12px 30px;
-    margin: 0 10px;
-    font-size: 18px;
+#continueBtn {
+    font-family: "Pixelify Sans", sans-serif;
+    padding: 12px 25px;
+    font-size: 20px;
     font-weight: bold;
-    border: none;
-    border-radius: 8px;
+    color: white;
+    background: linear-gradient(180deg, royalblue 50%, ghostwhite 100%);
+    border: 4px solid #000000;
+    border-radius: 20px;
     cursor: pointer;
-    background: white;
-    color: #333;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: 0.2s ease;
+    box-shadow: 4px 4px 0 0 #000000, inset 1px 1px 0 0 deepskyblue, -2px -2px 0 0 royalblue;
+    transition: all 0.1s ease-out;
+    margin-right: 0;
 }
 
-.menu-btn:hover {
-    background: #f0f0f0;
-    transform: translateY(-2px);
+#continueBtn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 0 #000000, inset 1px 1px 0 0 royalblue, -1px -1px 0 0 blue;
+    color: ghostwhite;
+    background: linear-gradient(180deg, blue 0%, lightskyblue 100%);
 }
 
 
@@ -124,7 +119,7 @@ html, body {
 
 /*This part is for blurred story text*/
 .story-text {
-    color: black;
+    color: white;
     font-size: 18px;
     line-height: 1.6;
     text-align: center;
