@@ -51,6 +51,8 @@ html, body {
 }
 
 .text-box {
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 900;
     width: 90%;                /* size can be changed, 70 */
     max-width: 800px;
     height: 100px;             /* height of the box, 200 */
