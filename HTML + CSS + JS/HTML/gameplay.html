@@ -12,9 +12,6 @@
 </head>
 
 <body>
-    <audio id="background-music" loop autoplay>
-        <source src="../IMG/Music.mp3" type="audio/mpeg">
-    </audio>
     <div class="video">
         <img src="../IMG/background1.png" class="back-video">
     </div>
@@ -60,8 +57,16 @@
                 <div id="airport-list" class="airport-list"></div>
                 <button id="go-button" class="go-button">GO</button>
             </aside>
+
         </main>
     </div>
+<footer class="footer">
+                <audio id="music" src="../IMG/Hotel - Toby Fox.mp3" loop preload="auto"></audio>
+    <label class="switch">
+      <input type="checkbox" id="musicToggle">
+      <span class="slider round"></span></label>
+        <div>Music Status: <span id="status">OFF</span>
+        <script src="../JS/start2.js"></script></div></footer>
 </body>
 
 </html>
